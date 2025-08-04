@@ -1,0 +1,30 @@
+@using DersProgramiMvc.Models
+@{
+    ViewData["Title"] = "Gün Seç";
+    DersProgrami? ders = ViewBag.Ders as DersProgrami;
+    string? secilenGun = ViewBag.Gun as string;
+    string? hata = ViewBag.Hata as string;
+}
+
+<h2>Ders Programı</h2>
+
+<form method="post">
+    <label>Bir gün girin (örn: Pazartesi, Sali, Carsamba):</label><br />
+    <input type="text" name="gun" />
+    <button type="submit">Göster</button>
+</form>
+
+@if (!string.IsNullOrEmpty(hata))
+{
+    <div style="color:red; margin-top:15px;">
+        @hata
+    </div>
+}
+else if (ders != null && !string.IsNullOrEmpty(secilenGun))
+{
+    <div style="margin-top:15px;">
+        <strong>@secilenGun</strong> gününün dersi:<br />
+        Ders: @ders.DersAdi<br />
+        Saat: @ders.Saat
+    </div>
+}
