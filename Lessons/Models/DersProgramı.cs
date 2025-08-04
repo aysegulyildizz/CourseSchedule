@@ -1,17 +1,10 @@
 namespace DersProgramiMvc.Models
 {
-    public class DersProgrami
+    public class Ders
     {
+        public int Id { get; set; }          // Primary key için Id ekledik
         public string DersAdi { get; set; }
         public string Saat { get; set; }
-    }
-
-    public enum Gun
-    {
-        Pazartesi,
-        Sali,
-        Carsamba,
-        Persembe,
-        Cuma
+        public string Gun { get; set; }      // Enum yerine string kullanalım SQLite ile uyumlu olsun diye
     }
 }

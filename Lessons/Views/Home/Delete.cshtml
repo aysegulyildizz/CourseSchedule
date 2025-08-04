@@ -1,0 +1,15 @@
+@model DersProgramiMvc.Models.Ders
+
+@{
+    ViewData["Title"] = "Ders Sil";
+}
+
+<h2>Dersi Sil</h2>
+
+<h4>@Model.DersAdi dersini silmek istediğinize emin misiniz?</h4>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Evet, Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>

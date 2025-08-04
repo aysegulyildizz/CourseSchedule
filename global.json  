@@ -1,0 +1,13 @@
+
+{
+  "sdk": {
+    "version": "9.0.107"
+  }
+}
+{
+  "sdk": {
+    "version": "7.0.0",
+    "rollForward": "latestMinor",
+    "allowPrerelease": false
+  }
+}

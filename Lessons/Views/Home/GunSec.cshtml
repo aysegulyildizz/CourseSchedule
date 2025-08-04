@@ -1,30 +1,31 @@
-@using DersProgramiMvc.Models
 @{
-    ViewData["Title"] = "Gün Seç";
-    DersProgrami? ders = ViewBag.Ders as DersProgrami;
-    string? secilenGun = ViewBag.Gun as string;
-    string? hata = ViewBag.Hata as string;
+    ViewData["Title"] = "Güne Göre Ders Bul";
 }
 
-<h2>Ders Programı</h2>
+<h2>Güne Göre Ders Bul</h2>
 
-<form method="post">
-    <label>Bir gün girin (örn: Pazartesi, Sali, Carsamba):</label><br />
-    <input type="text" name="gun" />
-    <button type="submit">Göster</button>
+<form method="post" asp-action="GunSec">
+    <div class="form-group">
+        <label>Gün giriniz (örneğin: Pazartesi)</label>
+        <input type="text" name="gun" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Ara</button>
+    <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
 </form>
 
-@if (!string.IsNullOrEmpty(hata))
+@if (ViewBag.Hata != null)
 {
-    <div style="color:red; margin-top:15px;">
-        @hata
-    </div>
+    <div class="alert alert-danger mt-3">@ViewBag.Hata</div>
 }
-else if (ders != null && !string.IsNullOrEmpty(secilenGun))
+
+@if (ViewBag.Ders != null)
 {
-    <div style="margin-top:15px;">
-        <strong>@secilenGun</strong> gününün dersi:<br />
-        Ders: @ders.DersAdi<br />
-        Saat: @ders.Saat
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Gün: @ViewBag.Gun</h5>
+            <p class="card-text">Ders: @ViewBag.Ders.DersAdi</p>
+            <p class="card-text">Saat: @ViewBag.Ders.Saat</p>
+        </div>
     </div>
 }

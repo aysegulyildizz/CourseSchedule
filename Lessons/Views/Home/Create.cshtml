@@ -1,0 +1,28 @@
+@model DersProgramiMvc.Models.Ders
+
+@{
+    ViewData["Title"] = "Yeni Ders Ekle";
+}
+
+<h2>Yeni Ders Ekle</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="DersAdi"></label>
+        <input asp-for="DersAdi" class="form-control" />
+        <span asp-validation-for="DersAdi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Saat"></label>
+        <input asp-for="Saat" class="form-control" />
+        <span asp-validation-for="Saat" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Gun"></label>
+        <input asp-for="Gun" class="form-control" />
+        <span asp-validation-for="Gun" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>
